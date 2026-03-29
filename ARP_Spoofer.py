@@ -32,7 +32,6 @@ def get_arguments():
     return parser.parse_args()
 
 def get_mac(ip):
-    """Obtiene la dirección MAC de una IP mediante ARP request"""
     arp_request = scapy.ARP(pdst=ip)
     broadcast = scapy.Ether(dst="ff:ff:ff:ff:ff:ff")
     arp_request_broadcast = broadcast/arp_request

